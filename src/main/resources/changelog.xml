@@ -10,4 +10,20 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
         http://www.liquibase.org/xml/ns/pro
         http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet id="1" author="yi">
+        <sqlFile path="db/migrations/01_create_user_table.sql"
+                    relativeToChangelogFile="true"/>
+    </changeSet>
+    <changeSet id="2" author="yi">
+        <sqlFile path="db/migrations/02_create_account_table.sql"
+                    relativeToChangelogFile="true"/>
+    </changeSet>
+    <changeSet id="3" author="yi">
+        <sqlFile path="db/migrations/03_create_payment_table.sql"
+                    relativeToChangelogFile="true"/>
+    </changeSet>
+    <changeSet id="4" author="yi">
+        <sqlFile path="db/migrations/04_add_unique_index_on_account_number_field.sql"
+                    relativeToChangelogFile="true"/>
+    </changeSet>
 </databaseChangeLog>
