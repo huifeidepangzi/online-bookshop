@@ -6,7 +6,7 @@ services:
     ports:
       - "8000:8031"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/test_db
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/onlinebookshop
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
     depends_on:
