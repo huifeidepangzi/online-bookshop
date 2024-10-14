@@ -1,8 +1,9 @@
-package com.yi.online_bookshop.entity;
+package com.yi.online_bookshop.domain.entity.payment;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import com.yi.online_bookshop.domain.entity.account.Account;
 import com.yi.online_bookshop.enums.PaymentType;
 
 import jakarta.persistence.Column;

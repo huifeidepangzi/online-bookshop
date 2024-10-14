@@ -1,4 +1,6 @@
-package com.yi.online_bookshop.entity;
+package com.yi.online_bookshop.domain.entity.account;
+
+import com.yi.online_bookshop.domain.entity.user.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
