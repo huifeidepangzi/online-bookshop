@@ -15,6 +15,9 @@ import com.yi.online_bookshop.api_response.GeneralApiResponse;
 import com.yi.online_bookshop.dto.user.CreateUserDTO;
 import com.yi.online_bookshop.service.UserService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 
 @RestController
@@ -24,6 +27,11 @@ public class UserController {
     @Autowired
     private UserService bookshopUserService;
 
+    @Operation(summary = "Create a new user", description = "Creates a new user with the given details")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "201", description = "User created successfully"),
+        @ApiResponse(responseCode = "400", description = "Bad input dataset")
+    })
     @PostMapping("/create")
     public ResponseEntity<GeneralApiResponse> createUser(@Valid @RequestBody CreateUserDTO createUserDTO) {
         Map<String, String> responseData = Map.of(
