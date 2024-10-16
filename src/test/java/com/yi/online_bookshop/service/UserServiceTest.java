@@ -18,9 +18,12 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataIntegrityViolationException;
 
+import com.yi.online_bookshop.domain.entity.account.Account;
+import com.yi.online_bookshop.domain.entity.account.AccountFactory;
 import com.yi.online_bookshop.domain.entity.user.User;
 import com.yi.online_bookshop.domain.entity.user.UserFactory;
 import com.yi.online_bookshop.dto.user.CreateUserDTO;
+import com.yi.online_bookshop.repository.AccountRepository;
 import com.yi.online_bookshop.repository.UserRepository;
 
 @SpringBootTest
@@ -33,6 +36,9 @@ public class UserServiceTest {
     @Mock
     private UserRepository userRepository;
 
+    @Mock
+    private AccountRepository accountRepository;
+
     @Test
     public void TestUserCreationHappyPath() {
         // Given
@@ -43,8 +49,10 @@ public class UserServiceTest {
 
         CreateUserDTO userDTO = new CreateUserDTO(name, email, age, activeFrom);
         User mockUser = UserFactory.createUserFromUserDTO(userDTO);
+        Account mockAccount = AccountFactory.createForUser(mockUser);
 
         Mockito.when(userRepository.save(any(User.class))).thenReturn(mockUser);
+        Mockito.when(accountRepository.save(any(Account.class))).thenReturn(mockAccount);
 
         // When
         User userCreated = userService.createUser(userDTO);

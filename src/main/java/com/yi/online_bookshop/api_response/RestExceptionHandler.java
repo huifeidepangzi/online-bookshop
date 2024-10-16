@@ -1,6 +1,8 @@
 package com.yi.online_bookshop.api_response;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -21,10 +23,12 @@ public class RestExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<GeneralApiResponse> handleValidationExceptions(MethodArgumentNotValidException ex) {
         List<ApiSubError> fieldErrors = new ArrayList<>();
+        List<FieldError> errors = new ArrayList<>(ex.getBindingResult().getFieldErrors());
 
-        for (FieldError error : ex.getBindingResult().getFieldErrors()) {
-            ApiSubError err = new ApiValidationError(error.getField(), error.getDefaultMessage());
-            fieldErrors.add(err);
+        Collections.sort(errors, Comparator.comparing(FieldError::getField));
+
+        for (FieldError error : errors) {
+            fieldErrors.add(new ApiValidationError(error.getField(), error.getDefaultMessage()));
         }
 
         GeneralApiResponse response = new GeneralApiResponse(HttpStatus.BAD_REQUEST, "Validation failed.", fieldErrors);

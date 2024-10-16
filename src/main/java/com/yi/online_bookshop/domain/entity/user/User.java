@@ -1,12 +1,18 @@
 package com.yi.online_bookshop.domain.entity.user;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import com.yi.online_bookshop.domain.entity.account.Account;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -18,7 +24,7 @@ public class User {
     private User() {
     }
 
-    public User(String name, String email, Integer age, LocalDateTime activeFrom) {
+    User(String name, String email, Integer age, LocalDateTime activeFrom) {
         this.name = name;
         this.email = email;
         this.age = age;
@@ -43,4 +49,7 @@ public class User {
 
     @Column(name = "active_to") // Allows null value by default
     private LocalDateTime activeTo;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Account> accounts;
 }
