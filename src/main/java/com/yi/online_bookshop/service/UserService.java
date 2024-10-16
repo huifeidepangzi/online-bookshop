@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.yi.online_bookshop.domain.entity.UserFactory;
 import com.yi.online_bookshop.domain.entity.user.User;
+import com.yi.online_bookshop.domain.entity.user.UserFactory;
 import com.yi.online_bookshop.dto.user.CreateUserDTO;
 import com.yi.online_bookshop.repository.UserRepository;
 

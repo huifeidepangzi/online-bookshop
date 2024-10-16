@@ -1,6 +1,5 @@
-package com.yi.online_bookshop.domain.entity;
+package com.yi.online_bookshop.domain.entity.user;
 
-import com.yi.online_bookshop.domain.entity.user.User;
 import com.yi.online_bookshop.dto.user.CreateUserDTO;
 
 public class UserFactory {
