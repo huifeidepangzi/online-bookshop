@@ -26,4 +26,8 @@
         <sqlFile path="db/migrations/04_add_unique_index_on_account_number_field.sql"
                     relativeToChangelogFile="true"/>
     </changeSet>
+    <changeSet id="5" author="yi">
+        <sqlFile path="db/migrations/05_add_active_from_and_to_columns.sql"
+                    relativeToChangelogFile="true"/>
+    </changeSet>
 </databaseChangeLog>
