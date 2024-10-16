@@ -10,11 +10,20 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-
 @Entity
 @Table(name = "users")
 @Data
 public class User {
+
+    private User() {
+    }
+
+    public User(String name, String email, Integer age, LocalDateTime activeFrom) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
+        this.activeFrom = activeFrom;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
