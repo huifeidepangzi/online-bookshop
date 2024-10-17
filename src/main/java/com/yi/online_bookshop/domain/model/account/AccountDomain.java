@@ -3,7 +3,7 @@ package com.yi.online_bookshop.domain.model.account;
 import java.security.SecureRandom;
 import java.text.DecimalFormat;
 
-import com.yi.online_bookshop.domain.model.user.User;
+import com.yi.online_bookshop.domain.model.user.UserDomain;
 
 import lombok.Data;
 
@@ -12,16 +12,16 @@ public class AccountDomain {
 
     private Long id;
 
-    private User user;
+    private UserDomain user;
 
     private String accountNumber;
 
-    AccountDomain(User user, String accountNumber) {
+    AccountDomain(UserDomain user, String accountNumber) {
         this.user = user;
         this.accountNumber = accountNumber;
     }
 
-    AccountDomain(User user) {
+    AccountDomain(UserDomain user) {
         this.user = user;
         this.accountNumber = this.generateAccountNumber();
     }
