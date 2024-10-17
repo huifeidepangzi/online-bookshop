@@ -1,9 +1,9 @@
-package com.yi.online_bookshop.infrastructure.payment;
+package com.yi.online_bookshop.domain.service.paymentProvider.implmentations;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import com.yi.online_bookshop.domain.service.PaymentProviderInterface;
+import com.yi.online_bookshop.domain.service.paymentProvider.PaymentProviderInterface;
 
 @Service
 @Profile("prod")
