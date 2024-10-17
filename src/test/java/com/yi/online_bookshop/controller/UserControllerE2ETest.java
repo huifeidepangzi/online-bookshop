@@ -16,8 +16,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.yi.online_bookshop.controller.user.UserController;
-import com.yi.online_bookshop.domain.entity.user.User;
-import com.yi.online_bookshop.domain.entity.user.UserFactory;
+import com.yi.online_bookshop.domain.model.user.User;
+import com.yi.online_bookshop.domain.model.user.UserFactory;
 import com.yi.online_bookshop.dto.user.CreateUserDTO;
 import com.yi.online_bookshop.service.UserService;
 

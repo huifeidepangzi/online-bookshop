@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.yi.online_bookshop.domain.entity.account.Account;
-import com.yi.online_bookshop.domain.entity.account.AccountFactory;
-import com.yi.online_bookshop.domain.entity.user.User;
-import com.yi.online_bookshop.domain.entity.user.UserFactory;
+import com.yi.online_bookshop.domain.model.account.Account;
+import com.yi.online_bookshop.domain.model.account.AccountFactory;
+import com.yi.online_bookshop.domain.model.user.User;
+import com.yi.online_bookshop.domain.model.user.UserFactory;
 import com.yi.online_bookshop.dto.user.CreateUserDTO;
 import com.yi.online_bookshop.repository.AccountRepository;
 import com.yi.online_bookshop.repository.UserRepository;
