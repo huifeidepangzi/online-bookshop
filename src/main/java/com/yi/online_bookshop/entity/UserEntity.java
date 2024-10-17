@@ -1,9 +1,7 @@
-package com.yi.online_bookshop.domain.model.user;
+package com.yi.online_bookshop.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-import com.yi.online_bookshop.entity.AccountEntity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -19,17 +17,7 @@ import lombok.Data;
 @Entity
 @Table(name = "users")
 @Data
-public class User {
-
-    private User() {
-    }
-
-    User(String name, String email, Integer age, LocalDateTime activeFrom) {
-        this.name = name;
-        this.email = email;
-        this.age = age;
-        this.activeFrom = activeFrom;
-    }
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

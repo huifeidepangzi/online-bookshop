@@ -16,8 +16,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.yi.online_bookshop.controller.user.UserController;
-import com.yi.online_bookshop.domain.model.user.User;
-import com.yi.online_bookshop.domain.model.user.UserFactory;
+import com.yi.online_bookshop.domain.model.user.UserDomain;
+import com.yi.online_bookshop.domain.model.user.UserDomainFactory;
 import com.yi.online_bookshop.dto.user.CreateUserDTO;
 import com.yi.online_bookshop.service.UserService;
 
@@ -36,7 +36,7 @@ public class UserControllerE2ETest {
         LocalDateTime activeFrom = LocalDateTime.of(2024, 07, 01, 03, 00, 00);
         CreateUserDTO createUserDTO = new CreateUserDTO("Yi Shan", "yi.shan@test.com", 22, activeFrom);
 
-        User mockUser = UserFactory.createUserFromUserDTO(createUserDTO);
+        UserDomain mockUser = UserDomainFactory.createUserFromUserDTO(createUserDTO);
         Mockito.when(userService.createUser(ArgumentMatchers.any(CreateUserDTO.class))).thenReturn(mockUser);
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -56,7 +56,7 @@ public class UserControllerE2ETest {
         LocalDateTime activeFrom = LocalDateTime.of(2024, 07, 01, 03, 00, 00);
         CreateUserDTO createUserDTO = new CreateUserDTO("", "INVALID_EMAIL", 22, activeFrom);
 
-        User mockUser = UserFactory.createUserFromUserDTO(createUserDTO);
+        UserDomain mockUser = UserDomainFactory.createUserFromUserDTO(createUserDTO);
         Mockito.when(userService.createUser(ArgumentMatchers.any(CreateUserDTO.class))).thenReturn(mockUser);
 
         ObjectMapper objectMapper = new ObjectMapper();

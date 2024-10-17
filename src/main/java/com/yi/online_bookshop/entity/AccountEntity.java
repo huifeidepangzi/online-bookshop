@@ -1,7 +1,5 @@
 package com.yi.online_bookshop.entity;
 
-import com.yi.online_bookshop.domain.model.user.User;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -24,7 +22,7 @@ public class AccountEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private UserEntity user;
 
     @Column(name = "account_number", unique = true, nullable = false)
     private String accountNumber;
