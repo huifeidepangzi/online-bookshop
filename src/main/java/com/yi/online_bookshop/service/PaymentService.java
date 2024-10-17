@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.yi.online_bookshop.domain.model.payment.PaymentDomain;
 import com.yi.online_bookshop.domain.model.payment.PaymentMapper;
-import com.yi.online_bookshop.domain.service.PaymentProviderInterface;
+import com.yi.online_bookshop.domain.service.paymentProvider.PaymentProviderInterface;
 import com.yi.online_bookshop.dto.payment.CreatePaymentDTO;
 import com.yi.online_bookshop.entity.AccountEntity;
 import com.yi.online_bookshop.entity.PaymentEntity;
