@@ -4,11 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.yi.online_bookshop.domain.model.account.Account;
-import com.yi.online_bookshop.domain.model.account.AccountFactory;
+import com.yi.online_bookshop.domain.model.account.AccountDomainFactory;
+import com.yi.online_bookshop.domain.model.account.AccountMapper;
 import com.yi.online_bookshop.domain.model.user.User;
 import com.yi.online_bookshop.domain.model.user.UserFactory;
 import com.yi.online_bookshop.dto.user.CreateUserDTO;
+import com.yi.online_bookshop.entity.AccountEntity;
 import com.yi.online_bookshop.repository.AccountRepository;
 import com.yi.online_bookshop.repository.UserRepository;
 
@@ -28,8 +29,8 @@ public class UserService {
         User newUser = UserFactory.createUserFromUserDTO(createUserDTO);
         User savedUser = userRepository.save(newUser);
 
-        Account account = AccountFactory.createForUser(savedUser);
-        accountRepository.save(account);
+        AccountEntity accountEntity = AccountMapper.DomainToEntity(AccountDomainFactory.createForUser(savedUser));
+        accountRepository.save(accountEntity);
 
         return savedUser;
     }

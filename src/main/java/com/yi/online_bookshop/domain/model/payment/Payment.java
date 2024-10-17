@@ -3,7 +3,7 @@ package com.yi.online_bookshop.domain.model.payment;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import com.yi.online_bookshop.domain.model.account.Account;
+import com.yi.online_bookshop.entity.AccountEntity;
 import com.yi.online_bookshop.enums.PaymentType;
 
 import jakarta.persistence.Column;
@@ -29,7 +29,7 @@ public class Payment {
 
     @ManyToOne
     @JoinColumn(name = "account_id", nullable = false)
-    private Account account;
+    private AccountEntity account;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "payment_type", nullable = false)

@@ -3,7 +3,7 @@ package com.yi.online_bookshop.domain.model.user;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.yi.online_bookshop.domain.model.account.Account;
+import com.yi.online_bookshop.entity.AccountEntity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -51,5 +51,5 @@ public class User {
     private LocalDateTime activeTo;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Account> accounts;
+    private List<AccountEntity> accounts;
 }

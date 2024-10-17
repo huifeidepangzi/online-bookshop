@@ -1,27 +1,30 @@
 package com.yi.online_bookshop.service;
 
-import java.time.LocalDateTime;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+
+import java.time.LocalDateTime;
+
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import static org.mockito.ArgumentMatchers.any;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataIntegrityViolationException;
 
-import com.yi.online_bookshop.domain.model.account.Account;
-import com.yi.online_bookshop.domain.model.account.AccountFactory;
+import com.yi.online_bookshop.domain.model.account.AccountDomain;
+import com.yi.online_bookshop.domain.model.account.AccountDomainFactory;
+import com.yi.online_bookshop.domain.model.account.AccountMapper;
 import com.yi.online_bookshop.domain.model.user.User;
 import com.yi.online_bookshop.domain.model.user.UserFactory;
 import com.yi.online_bookshop.dto.user.CreateUserDTO;
+import com.yi.online_bookshop.entity.AccountEntity;
 import com.yi.online_bookshop.repository.AccountRepository;
 import com.yi.online_bookshop.repository.UserRepository;
 
@@ -48,10 +51,11 @@ public class UserServiceTest {
 
         CreateUserDTO userDTO = new CreateUserDTO(name, email, age, activeFrom);
         User mockUser = UserFactory.createUserFromUserDTO(userDTO);
-        Account mockAccount = AccountFactory.createForUser(mockUser);
+        AccountDomain mockAccountDomain = AccountDomainFactory.createForUser(mockUser);
+        AccountEntity mockAccountEntity = AccountMapper.DomainToEntity(mockAccountDomain);
 
         Mockito.when(userRepository.save(any(User.class))).thenReturn(mockUser);
-        Mockito.when(accountRepository.save(any(Account.class))).thenReturn(mockAccount);
+        Mockito.when(accountRepository.save(any(AccountEntity.class))).thenReturn(mockAccountEntity);
 
         // When
         User userCreated = userService.createUser(userDTO);
