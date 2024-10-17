@@ -1,9 +1,9 @@
-package com.yi.online_bookshop.domain.entity.account;
+package com.yi.online_bookshop.domain.model.account;
 
 import java.security.SecureRandom;
 import java.text.DecimalFormat;
 
-import com.yi.online_bookshop.domain.entity.user.User;
+import com.yi.online_bookshop.domain.model.user.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

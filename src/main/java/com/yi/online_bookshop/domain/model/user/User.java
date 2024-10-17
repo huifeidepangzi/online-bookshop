@@ -1,9 +1,9 @@
-package com.yi.online_bookshop.domain.entity.user;
+package com.yi.online_bookshop.domain.model.user;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.yi.online_bookshop.domain.entity.account.Account;
+import com.yi.online_bookshop.domain.model.account.Account;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

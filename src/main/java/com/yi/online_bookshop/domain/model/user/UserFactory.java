@@ -1,4 +1,4 @@
-package com.yi.online_bookshop.domain.entity.user;
+package com.yi.online_bookshop.domain.model.user;
 
 import com.yi.online_bookshop.dto.user.CreateUserDTO;
 
