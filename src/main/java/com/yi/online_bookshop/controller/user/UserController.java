@@ -2,7 +2,6 @@ package com.yi.online_bookshop.controller.user;
 
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +23,11 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/users")
 public class UserController {
 
-    @Autowired
-    private UserService bookshopUserService;
+    private final UserService bookshopUserService;
+
+    public UserController(UserService userService) {
+        this.bookshopUserService = userService;
+    }
 
     @Operation(summary = "Create a new user", description = "Creates a new user with the given details")
     @ApiResponses(value = {

@@ -1,6 +1,5 @@
 package com.yi.online_bookshop.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +18,13 @@ import jakarta.transaction.Transactional;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final AccountRepository accountRepository;
 
-    @Autowired
-    private AccountRepository accountRepository;
+    public UserService(UserRepository userRepository, AccountRepository accountRepository) {
+        this.userRepository = userRepository;
+        this.accountRepository = accountRepository;
+    }
 
     @Transactional
     public UserDomain createUser(CreateUserDTO createUserDTO) throws DataIntegrityViolationException {
