@@ -1,17 +1,21 @@
 package com.yi.online_bookshop.service;
 
-import java.time.LocalDateTime;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
+
+
+import static org.mockito.Mockito.when;
+
+import java.time.LocalDateTime;
+
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import static org.mockito.ArgumentMatchers.any;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,6 +30,7 @@ import com.yi.online_bookshop.domain.model.user.UserMapper;
 import com.yi.online_bookshop.dto.user.CreateUserDTO;
 import com.yi.online_bookshop.entity.AccountEntity;
 import com.yi.online_bookshop.entity.UserEntity;
+
 import com.yi.online_bookshop.repository.AccountRepository;
 import com.yi.online_bookshop.repository.UserRepository;
 
@@ -41,6 +46,11 @@ public class UserServiceTest {
 
     @Mock
     private AccountRepository accountRepository;
+
+    @Before
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
 
     @Test
     public void TestUserCreationHappyPath() {
@@ -72,8 +82,6 @@ public class UserServiceTest {
 
     @Test
     public void TestRaiseDataIntegrityViolationError() {
-        // Initialize mocks
-        MockitoAnnotations.openMocks(this);
 
         // Given
         String name = "Yi Shan";

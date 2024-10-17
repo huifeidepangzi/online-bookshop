@@ -7,9 +7,6 @@ import lombok.Data;
 @Data
 public class UserDomain {
 
-    private UserDomain() {
-    }
-
     UserDomain(String name, String email, Integer age, LocalDateTime activeFrom) {
         this.name = name;
         this.email = email;
