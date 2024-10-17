@@ -1,9 +1,8 @@
-package com.yi.online_bookshop.domain.model.payment;
+package com.yi.online_bookshop.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import com.yi.online_bookshop.entity.AccountEntity;
 import com.yi.online_bookshop.enums.PaymentType;
 
 import jakarta.persistence.Column;
@@ -21,7 +20,7 @@ import lombok.Data;
 @Entity
 @Table(name = "payments")
 @Data
-public class Payment {
+public class PaymentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
