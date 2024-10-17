@@ -22,6 +22,13 @@ import lombok.Data;
 @Data
 public class PaymentEntity {
 
+    public PaymentEntity(AccountEntity account, PaymentType paymentType, BigDecimal amount, LocalDate paymentDate) {
+        this.account = account;
+        this.paymentType = paymentType;
+        this.amount = amount;
+        this.paymentDate = paymentDate;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

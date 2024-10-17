@@ -6,9 +6,11 @@ import java.time.LocalDate;
 import com.yi.online_bookshop.entity.AccountEntity;
 import com.yi.online_bookshop.enums.PaymentType;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class PaymentDomain {
 
     private Long id;

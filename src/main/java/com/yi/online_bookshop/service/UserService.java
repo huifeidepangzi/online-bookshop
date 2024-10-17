@@ -2,6 +2,7 @@ package com.yi.online_bookshop.service;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.yi.online_bookshop.domain.model.user.UserDomain;
 import com.yi.online_bookshop.domain.model.user.UserDomainFactory;
@@ -12,8 +13,6 @@ import com.yi.online_bookshop.entity.AccountEntityFactory;
 import com.yi.online_bookshop.entity.UserEntity;
 import com.yi.online_bookshop.repository.AccountRepository;
 import com.yi.online_bookshop.repository.UserRepository;
-
-import jakarta.transaction.Transactional;
 
 @Service
 public class UserService {
